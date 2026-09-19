@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Pagnes traditionnels du Burkina Faso</title>
+  <meta
+    name="description"
+    content="Découvrez l'histoire, les valeurs et la démarche derrière notre sélection de pagnes traditionnels et la mise en valeur du savoir-faire burkinabè."
+  >
+  <link
+    rel="canonical"
+    href="https://TON-DOMAINE.com/a-propos.html"
+  >
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo"> Pagnes du Faso</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="apropos.html" class="active">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="btn-panier" onclick="togglePanier()">
+      <i class="fa-solid fa-cart-shopping"></i> Panier <span id="badge-panier">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="section">
+  <h2>Notre histoire</h2>
+  <div style="max-width:800px;margin:0 auto;">
+    <p style="margin-bottom:1rem;">
+      Ancrée à Ouagadougou, au Burkina Faso, notre activité met à l’honneur l’art du pagne traditionnel à travers des créations uniques. Tissés, teints et confectionnés avec soin, nos pagnes associent le savoir-faire ancestral aux inspirations contemporaines, pour donner naissance à des pièces authentiques, élégantes et intemporelles.
+    </p>
+    <p style="margin-bottom:1rem;">
+      Chaque pièce est réalisée à la main, avec des matières locales
+      et des colorants naturels. Notre objectif : valoriser le savoir-faire
+      féminin burkinabè et le faire rayonner au-delà de nos frontières.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Nos valeurs</h2>
+  <div class="grille-produits">
+    <div class="carte-produit" style="padding:1.5rem;text-align:center;">
+      <h3 style="color:#7b2d26;">Fait main</h3>
+      <p>Chaque pagne est unique, tissé et teint à la main.</p>
+    </div>
+    <div class="carte-produit" style="padding:1.5rem;text-align:center;">
+      <h3 style="color:#7b2d26;">Local</h3>
+      <p>Matières premières et savoir-faire 100% burkinabè.</p>
+    </div>
+    <div class="carte-produit" style="padding:1.5rem;text-align:center;">
+      <h3 style="color:#7b2d26;">Solidaire</h3>
+      <p>Chaque vente soutient un collectif de femmes artisanes.</p>
+    </div>
+  </div>
+</section>
+
+<div class="modale-panier" id="modale-panier">
+  <div class="contenu-panier">
+    <h3>Mon panier <button class="fermer-panier" onclick="togglePanier()">✕</button></h3>
+    <div id="liste-panier"></div>
+    <button class="btn-whatsapp-commande" onclick="commanderSurWhatsApp()">
+      Commander sur WhatsApp
+    </button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Pagnes du Faso — Artisanat burkinabè</p>
+  <p>Ouagadougou, Burkina Faso</p>
+  
+  <nav aria-label="Liens du pied de page">
+    <a href="index.html">Accueil</a>
+    <a href="collection.html">Collection</a>
+    <a href="apropos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script src="js/produits.js"></script>
+<script src="js/panier.js"></script>
+<script src="js/whatsapp.js"></script>
+</body>
+</html>

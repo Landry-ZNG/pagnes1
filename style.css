@@ -1,0 +1,614 @@
+/* ===================================================
+   RESET GLOBAL + BOX SIZING
+=================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdf8f3;
+  color: #2c1810;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Images responsives par défaut */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Liens et boutons tap-friendly */
+a, button {
+  min-height: 44px; /* taille tactile recommandée Apple/Google */
+  touch-action: manipulation;
+}
+
+/* ===================================================
+   HEADER RESPONSIVE
+=================================================== */
+header {
+  background: #7b2d26;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+  height: clamp(5rem , 7rem , 10rem);
+}
+
+.logo {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: bold;
+  color: #f4b942;
+  white-space: nowrap;
+}
+
+nav {
+  order: 3;
+  width: 100%;
+  flex-basis: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: clamp(0.8rem, 2.2vw, 1rem);
+  padding: 0.4rem 0.6rem;
+  display: inline-block;
+  border-radius: 6px;
+}
+
+nav a:hover, nav a.active {
+  color: #f4b942;
+  background: rgba(255,255,255,0.08);
+}
+
+.btn-panier {
+  background: #f4b942;
+  color: #7b2d26;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  transition: transform 0.2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-panier:active { transform: scale(0.97); }
+
+#badge-panier {
+  background: #7b2d26;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  min-width: 22px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* ===================================================
+   HERO RESPONSIVE
+=================================================== */
+.hero {
+  background: linear-gradient(rgba(123,45,38,0.75), rgba(123,45,38,0.75)),
+              url('../images/hero.png') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: clamp(2.5rem, 8vw, 6rem) 1rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  margin-bottom: 1rem;
+  color: #f4b942;
+  line-height: 1.2;
+  max-width: 900px;
+}
+
+.hero p {
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  padding: 0 0.5rem;
+}
+
+.btn-principal {
+  background: #f4b942;
+  color: #7b2d26;
+  padding: 0.9rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.2s;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+}
+
+.btn-principal:active { transform: scale(0.97); }
+
+/* ===================================================
+   SECTIONS
+=================================================== */
+.section {
+  max-width: 1200px;
+  margin: clamp(2rem, 6vw, 4rem) auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+  width: 100%;
+}
+
+.section h2 {
+  text-align: center;
+  color: #7b2d26;
+  font-size: clamp(1.3rem, 4.5vw, 2rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  line-height: 1.3;
+}
+
+.section p {
+  font-size: clamp(0.9rem, 2.3vw, 1.05rem);
+}
+
+/* ===================================================
+   GRILLE PRODUITS (auto-adaptative)
+=================================================== */
+.grille-produits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  width: 100%;
+}
+
+.carte-produit {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carte-produit:hover { background:#D1D1D1; }
+
+.carte-produit .imgDiv {
+  width: 80%;
+}
+
+.carte-produit img {
+  width: 100%;
+  aspect-ratio: 1 / 1.2;
+  object-fit: cover;
+  display: block;
+}
+
+.carte-produit .infos {
+  padding: clamp(0.7rem, 2vw, 1rem);
+  text-align: center;
+  margin-top: auto;
+}
+
+.btn-ajouter, .btn-retirer {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  transition: background 0.3s, transform 0.15s;
+}
+
+.btn-ajouter:active, .btn-retirer:active { transform: scale(0.97); }
+
+.btn-ajouter {
+  background: #7b2d26;
+  color: #fff;
+}
+
+.btn-ajouter:hover { background: #5a1f1a; }
+
+.btn-retirer {
+  background: #e0e0e0;
+  color: #7b2d26;
+}
+
+.btn-retirer:hover { background: #c9c9c9; }
+
+/* ===================================================
+   MODALE PANIER RESPONSIVE
+=================================================== */
+.modale-panier {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: 0;
+}
+
+.modale-panier.ouvert {
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.contenu-panier {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.contenu-panier h3 {
+  color: #7b2d26;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+}
+
+.fermer-panier {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7b2d26;
+  min-height: auto;
+  padding: 0.3rem;
+  line-height: 1;
+}
+
+.item-panier {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item-panier img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.item-panier button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: auto;
+  font-size: 0.9rem;
+  min-height: 36px;
+}
+
+.btn-whatsapp-commande {
+  background: #25D366;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.95rem, 2.8vw, 1.05rem);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  transition: background 0.3s, transform 0.15s;
+}
+
+.btn-whatsapp-commande:hover { background: #1ebe5b; }
+.btn-whatsapp-commande:active { transform: scale(0.98); }
+
+/* ===================================================
+   FORMULAIRE CONTACT
+=================================================== */
+.formulaire {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: clamp(1.2rem, 4vw, 2rem);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  width: 100%;
+}
+
+.formulaire label {
+  display: block;
+  margin: 1rem 0 0.4rem;
+  font-weight: 600;
+  color: #7b2d26;
+  font-size: clamp(0.9rem, 2.3vw, 1rem);
+}
+
+.formulaire input,
+.formulaire textarea {
+  width: 100%;
+  padding: 0.85rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px; /* ⚠️ 16px minimum pour éviter le zoom auto sur iOS */
+  font-family: inherit;
+  background: #fff;
+  color: #2c1810;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.formulaire input:focus,
+.formulaire textarea:focus {
+  outline: none;
+  border-color: #7b2d26;
+}
+
+.formulaire textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formulaire button {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: clamp(0.95rem, 2.8vw, 1.05rem);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  width: 100%;
+  transition: background 0.3s, transform 0.15s;
+}
+
+.formulaire button:active { transform: scale(0.98); }
+
+/* ===================================================
+   FOOTER
+=================================================== */
+footer {
+  background: #7b2d26;
+  color: #fff;
+  text-align: center;
+  padding: clamp(1.5rem, 4vw, 2rem) 1rem;
+  margin-top: clamp(2rem, 6vw, 4rem);
+  font-size: clamp(0.85rem, 2.2vw, 1rem);
+}
+
+footer a { color: #f4b942; }
+
+/* ===================================================
+   MEDIA QUERIES — AJUSTEMENTS FINS
+=================================================== */
+
+/* --- Très petits mobiles (iPhone SE, 320-360px) --- */
+@media (max-width: 360px) {
+  html { font-size: 15px; }
+
+  .nav-container { gap: 0.3rem; }
+
+  .logo { font-size: 0.95rem; }
+
+  nav ul { gap: 0.25rem; }
+
+  nav a {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .btn-panier {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.7rem;
+  }
+
+  .hero { padding: 2rem 0.8rem; }
+  .hero h1 { font-size: 1.4rem; }
+  .hero p { font-size: 0.9rem; }
+
+  .btn-principal {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.85rem;
+  }
+
+  .grille-produits {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .grille-galerie {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .item-panier img { width: 50px; height: 50px; }
+}
+
+/* --- Mobiles moyens (360-480px) --- */
+@media (min-width: 361px) and (max-width: 480px) {
+  nav a { font-size: 0.85rem; padding: 0.35rem 0.5rem; }
+  .grille-produits { grid-template-columns: repeat(2, 1fr); }
+  .grille-galerie { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --- Très petits mobiles : grille produits à 2 colonnes --- */
+@media (max-width: 480px) {
+  .grille-produits {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .grille-galerie {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .carte-produit img {
+    aspect-ratio: 1 / 1.15;
+  }
+
+  .btn-ajouter, .btn-retirer {
+    font-size: 0.78rem;
+    padding: 0.6rem 0.4rem;
+  }
+
+  .contenu-panier {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+/* --- Tablettes (481px - 900px) : header reste une ligne --- */
+@media (min-width: 481px) and (max-width: 900px) {
+  nav {
+    order: 0;
+    width: auto;
+    flex-basis: auto;
+  }
+
+  nav ul {
+    flex-wrap: nowrap;
+    padding: 0;
+    gap: 0.4rem;
+  }
+
+  .grille-produits {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .grille-galerie {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+}
+
+/* --- Écrans moyens et + : header sur une seule ligne --- */
+@media (min-width: 901px) {
+  header { padding: 1rem 2rem; }
+
+  nav {
+    order: 0;
+    width: auto;
+    flex-basis: auto;
+  }
+
+  nav ul {
+    flex-wrap: nowrap;
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* --- Écrans larges : limite la largeur pour la lisibilité --- */
+@media (min-width: 1400px) {
+  .section { max-width: 1300px; }
+  .grille-produits { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ===================================================
+   AJUSTEMENTS PAYSAGE MOBILE (téléphone tourné)
+=================================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .hero h1 { font-size: 1.4rem; }
+  .hero p { font-size: 0.85rem; margin-bottom: 1rem; }
+}
+
+/* ===================================================
+   SUPPORT DU MODE SOMBRE AUTOMATIQUE (optionnel)
+=================================================== */
+@media (prefers-color-scheme: dark) {
+  /* Décommente si tu veux un mode sombre auto */
+  
+  body { background-color: #1a1a1a; color: #f0f0f0; }
+  .carte-produit, .formulaire { background: #2a2a2a; color: #f0f0f0; }
+  
+}
+
+/* ===================================================
+   ACCESSIBILITÉ : réduit les animations si demandé
+=================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

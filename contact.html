@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Pagnes traditionnels du Burkina Faso</title>
+  <meta
+    name="description"
+    content="Contactez-nous pour découvrir nos pagnes traditionnels du Burkina Faso, obtenir des informations ou passer une commande."
+  >
+  <link
+    rel="canonical"
+    href="https://TON-DOMAINE.com/contact.html"
+  >
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo"> Pagnes du Faso</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="btn-panier" onclick="togglePanier()">
+      <i class="fa-solid fa-cart-shopping"></i> Panier <span id="badge-panier">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="section">
+  <h2>Nous contacter</h2>
+  <p style="text-align:center;margin-bottom:2rem;">
+    Une question ? Une commande spéciale ? Écrivez-nous, nous vous répondrons via WhatsApp.
+  </p>
+
+  <form class="formulaire" onsubmit="envoyerFormulaireWhatsApp(event)">
+    <label for="nom">Votre nom</label>
+    <input type="text" id="nom" required placeholder="Ex : Awa Ouédraogo">
+
+    <label for="message">Votre message</label>
+    <textarea id="message" rows="5" required
+      placeholder="Bonjour, je souhaiterais..."></textarea>
+
+    <button type="submit">Envoyer via WhatsApp</button>
+  </form>
+</section>
+
+<div class="modale-panier" id="modale-panier">
+  <div class="contenu-panier">
+    <h3>Mon panier <button class="fermer-panier" onclick="togglePanier()">✕</button></h3>
+    <div id="liste-panier"></div>
+    <button class="btn-whatsapp-commande" onclick="commanderSurWhatsApp()">
+      Commander sur WhatsApp
+    </button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Pagnes du Faso — Artisanat burkinabè</p>
+  <p>Ouagadougou, Burkina Faso</p>
+  
+  <nav aria-label="Liens du pied de page">
+    <a href="index.html">Accueil</a>
+    <a href="collection.html">Collection</a>
+    <a href="apropos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script src="js/produits.js"></script>
+<script src="js/panier.js"></script>
+<script src="js/whatsapp.js"></script>
+</body>
+</html>

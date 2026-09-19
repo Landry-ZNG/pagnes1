@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection de pagnes traditionnels du Burkina Faso</title>
+  <meta
+    name="description"
+    content="Explorez notre collection de pagnes traditionnels du Burkina Faso et découvrez des créations inspirées du savoir-faire et de l’artisanat burkinabè."
+  >
+  <link
+    rel="canonical"
+    href="https://TON-DOMAINE.com/collection.html"
+  >
+  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo"> Pagnes du Faso</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="collection.html" class="active">Collection</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="btn-panier" onclick="togglePanier()">
+      <i class="fa-solid fa-cart-shopping"></i> Panier <span id="badge-panier">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="section">
+  <h2>Notre collection complète</h2>
+  <div class="grille-produits" id="collection"></div>
+</section>
+
+<div class="modale-panier" id="modale-panier">
+  <div class="contenu-panier">
+    <h3>Mon panier <button class="fermer-panier" onclick="togglePanier()">✕</button></h3>
+    <div id="liste-panier"></div>
+    <button class="btn-whatsapp-commande" onclick="commanderSurWhatsApp()">
+      Commander sur WhatsApp
+    </button>
+  </div>
+</div>
+<p style="margin:2rem;color:#3B3028;text-align:center;font-weight:bold">
+  Vous avez un modèle en tête que vous ne trouvez pas dans notre collection ? Envoyez-nous une photo, une inspiration ou décrivez-nous simplement ce que vous recherchez, et nous étudierons avec soin la possibilité de le confectionner.
+</p>
+
+<footer>
+  <p>© 2026 Pagnes du Faso — Artisanat burkinabè</p>
+  <p>Ouagadougou, Burkina Faso</p>
+
+  <nav aria-label="Liens du pied de page">
+    <a href="index.html">Accueil</a>
+    <a href="collection.html">Collection</a>
+    <a href="apropos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script src="js/produits.js"></script>
+<script src="js/panier.js"></script>
+<script src="js/whatsapp.js"></script>
+<script>
+  const conteneur = document.getElementById('collection');
+  PRODUITS.forEach(p => {
+    const carte = document.createElement('div');
+    carte.className = 'carte-produit';
+    carte.dataset.id = p.id;
+    carte.dataset.image = p.image;
+    carte.innerHTML = `
+      <div class="imgDiv">
+        <img src="${p.image}" alt="Pagne">
+      <div>
+      <div class="infos">
+        <button class="btn-ajouter">Ajouter au panier</button>
+      </div>
+    `;
+    conteneur.appendChild(carte);
+  });
+  rafraichirBoutons();
+</script>
+
+</body>
+</html>
